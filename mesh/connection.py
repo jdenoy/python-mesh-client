@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import logging
 import time
-import traceback
-from typing import Any, Dict, List, Optional
 
 from PySide6.QtCore import QObject, Signal, Slot
 
@@ -236,7 +234,7 @@ class MeshtasticBridge(QObject):
                 is_outgoing=True,
             )
             self.text_sent.emit(msg)
-        except Exception as e:
+        except Exception:
             log.exception("Send failed")
 
     @Slot()
@@ -272,13 +270,13 @@ class MeshtasticBridge(QObject):
             return
         try:
             self._interface.localNode.writeConfig(config_name)
-        except Exception as e:
-            log.exception(f"writeConfig({config_name}) failed")
+        except Exception:
+            log.exception("writeConfig(%s) failed", config_name)
 
     def write_channel(self, channel_index: int):
         if not self._interface:
             return
         try:
             self._interface.localNode.writeChannel(channel_index)
-        except Exception as e:
-            log.exception(f"writeChannel({channel_index}) failed")
+        except Exception:
+            log.exception("writeChannel(%s) failed", channel_index)

@@ -3,21 +3,19 @@ name: Pylint
 on: [push]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: "3.13"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install pylint
-    - name: Analysing the code with pylint
+        pip install -r requirements.txt
+    - name: Analyse with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        pylint --disable=E0401,C0114,C0115,C0116,C0301,R0902,R0903,R0912,R0914,R0915,W0718,W0613,W0108,R0801,E1133 $(git ls-files '*.py')

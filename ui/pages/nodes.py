@@ -1,13 +1,11 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 from PySide6.QtCore import Qt, Slot
 from PySide6.QtWidgets import (
     QAbstractItemView,
-    QHBoxLayout,
-    QHeaderView,
     QLabel,
     QTableWidget,
     QTableWidgetItem,

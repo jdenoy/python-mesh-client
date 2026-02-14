@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-import time
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict
 
 from PySide6.QtCore import Qt, Signal, Slot
 from PySide6.QtWidgets import (

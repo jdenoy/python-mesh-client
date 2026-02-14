@@ -6,7 +6,6 @@ from PySide6.QtCore import Slot
 from PySide6.QtWidgets import (
     QFormLayout,
     QGroupBox,
-    QHBoxLayout,
     QLabel,
     QLineEdit,
     QMessageBox,

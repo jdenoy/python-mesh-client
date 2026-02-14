@@ -1,19 +1,15 @@
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
-from PySide6.QtCore import Qt, Signal, Slot
+from PySide6.QtCore import Signal, Slot
 from PySide6.QtWidgets import (
     QComboBox,
     QFormLayout,
-    QGroupBox,
     QHBoxLayout,
     QLabel,
     QLineEdit,
     QListWidget,
-    QListWidgetItem,
-    QMessageBox,
     QPushButton,
     QScrollArea,
     QVBoxLayout,
@@ -120,8 +116,6 @@ class ChannelsPage(QWidget):
         self._channels = list(real_channels) if real_channels else []
 
         for i, ch in enumerate(self._channels):
-            role = str(ch.role) if hasattr(ch, "role") else "DISABLED"
-            # Map enum int to name
             role_names = {0: "DISABLED", 1: "PRIMARY", 2: "SECONDARY"}
             role_name = role_names.get(ch.role, str(ch.role))
             name = ch.settings.name if ch.settings else ""

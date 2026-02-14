@@ -3,21 +3,17 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Dict
 
 from google.protobuf.descriptor import FieldDescriptor
 
-from PySide6.QtCore import Qt, Signal
+from PySide6.QtCore import Signal
 from PySide6.QtWidgets import (
     QCheckBox,
     QComboBox,
     QDoubleSpinBox,
     QFormLayout,
-    QGroupBox,
-    QHBoxLayout,
-    QLabel,
     QLineEdit,
-    QPushButton,
     QScrollArea,
     QSpinBox,
     QVBoxLayout,
@@ -213,6 +209,6 @@ class ConfigForm(QWidget):
                     setattr(proto_msg, name, new_val)
                     changed = True
                 except Exception:
-                    log.exception(f"Failed to set {name}")
+                    log.exception("Failed to set %s", name)
 
         return changed
