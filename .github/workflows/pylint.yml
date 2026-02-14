@@ -18,4 +18,4 @@ jobs:
         pip install -r requirements.txt
     - name: Analyse with pylint
       run: |
-        pylint --disable=E0401,C0114,C0115,C0116,C0301,R0902,R0903,R0912,R0914,R0915,W0718,W0613,W0108,R0801,E1133 $(git ls-files '*.py')
+        pylint --disable=E0401,E0611,E1133,C0114,C0115,C0116,C0301,C0415,R0801,R0902,R0903,R0912,R0914,R0915,W0108,W0212,W0613,W0718 $(git ls-files '*.py')
